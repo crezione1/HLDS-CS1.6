@@ -18,4 +18,4 @@ COPY --chown=steam:steam cstrike/models cstrike_downloads/models
 COPY --chown=steam:steam cstrike/sound cstrike_downloads/sound
 COPY --chown=steam:steam cstrike/sprites cstrike_downloads/sprites
 
-CMD /home/steam/hlds/hlds_run -game cstrike +ip 0.0.0.0 +maxplayers $MAXPLAYERS +map $MAPNAME
+CMD /home/steam/hlds/hlds_run -game cstrike +ip 0.0.0.0 +maxplayers $MAXPLAYERS +map $MAPNAME -port 27015 -tickrate 100 +fps_max 1000 -secure

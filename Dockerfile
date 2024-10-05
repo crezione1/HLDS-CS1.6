@@ -2,7 +2,7 @@ FROM kriansa/cs-16:latest
 
 # Runtime settings
 ENV MAXPLAYERS="24"
-ENV MAPNAME="de_dust2"
+ENV MAPNAME="fy_pool_day"
 
 # Copy the files
 COPY --chown=steam:steam cstrike/addons cstrike/addons

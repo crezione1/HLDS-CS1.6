@@ -6,10 +6,14 @@ CONTAINER_NAME="cs16-server"
 case $1 in
   build)
     echo "Building Docker image..."
-    docker build -t $IMAGE_NAME .
+    docker build -t $IMAGE_NAME /cstrike/HLDS-CS1.6/  # Updated path to the Dockerfile
     ;;
 
   start)
+    if ! docker image inspect $IMAGE_NAME >/dev/null 2>&1; then
+      echo "Image $IMAGE_NAME not found. Building the image..."
+      docker build -t $IMAGE_NAME /cstrike/HLDS-CS1.6/  # Updated path to the Dockerfile
+    fi
     echo "Starting the HLDS server..."
     docker run -d -p 27015:27015/udp -p 27015:27015/tcp --name $CONTAINER_NAME $IMAGE_NAME
     ;;
